@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manglam Vidhyalaya – The Vision for Future</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #C9A84C;
+      --gold-light: #F0D080;
+      --gold-dark: #8B6914;
+      --navy: #1A2A4A;
+      --navy-light: #243560;
+      --sky: #4A90C4;
+      --white: #FDFAF3;
+      --cream: #F5EDD8;
+      --red: #C0392B;
+      --orange: #E67E22;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(26,42,74,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.6rem 2.5rem;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .nav-logo-circle {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--navy); border: 2px solid var(--gold-light);
+      flex-shrink: 0;
+    }
+    .nav-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem; color: var(--gold-light);
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      color: #CBD5E8; text-decoration: none;
+      font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 700; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 50%, #1a3a5c 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      position: relative; overflow: hidden;
+      padding-top: 72px;
+    }
+    .hero-bg-rays {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(201,168,76,0.18) 0%, transparent 65%),
+                  radial-gradient(ellipse at 80% 10%, rgba(74,144,196,0.1) 0%, transparent 50%);
+    }
+    .hero-stars {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .star {
+      position: absolute; width: 2px; height: 2px;
+      background: #fff; border-radius: 50%;
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.9; } }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      animation: fadeUp 1s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-logo-wrap {
+      width: 160px; height: 160px; border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 40px rgba(201,168,76,0.45), 0 0 80px rgba(201,168,76,0.15);
+      overflow: hidden;
+      background: #fff;
+      animation: fadeUp 1s 0.15s ease both;
+    }
+    .hero-logo-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 0.25rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+      animation: fadeUp 1s 0.25s ease both;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900; color: #fff;
+      line-height: 1.1; margin-bottom: 0.5rem;
+      animation: fadeUp 1s 0.3s ease both;
+    }
+    .hero h1 span { color: var(--gold-light); }
+    .hero-sub {
+      font-size: 1rem; color: #A0B4CE; margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+      animation: fadeUp 1s 0.4s ease both;
+    }
+    .hero-motto {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; color: var(--gold);
+      font-size: 1.25rem; margin-bottom: 2.2rem;
+      animation: fadeUp 1s 0.5s ease both;
+    }
+    .hero-btns {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy); font-weight: 700;
+      padding: 0.8rem 2rem; border-radius: 4px;
+      text-decoration: none; font-size: 0.9rem; letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s;
+      text-transform: uppercase;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 2px solid var(--gold);
+      color: var(--gold-light); font-weight: 700;
+      padding: 0.8rem 2rem; border-radius: 4px;
+      text-decoration: none; font-size: 0.9rem; letter-spacing: 0.06em;
+      transition: background 0.2s, transform 0.2s;
+      text-transform: uppercase;
+    }
+    .btn-outline:hover { background: rgba(201,168,76,0.1); transform: translateY(-2px); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      color: #6A85A8; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .scroll-dot {
+      width: 6px; height: 6px; background: var(--gold); border-radius: 50%;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(8px)} }
+
+    /* ── SECTION SHARED ── */
+    section { padding: 5rem 1.5rem; }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); font-weight: 700; margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700; color: var(--navy); margin-bottom: 1rem;
+    }
+    .section-title span { color: var(--gold-dark); }
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--sky));
+      margin-bottom: 2rem;
+    }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+    }
+    .about-text p {
+      color: #3A4A5C; line-height: 1.85; margin-bottom: 1rem; font-size: 0.97rem;
+    }
+    .about-logo {
+      text-align: center;
+    }
+    .about-logo-img {
+      width: 220px; height: 220px; border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--gold);
+      box-shadow: 0 8px 40px rgba(201,168,76,0.3);
+    }
+    .values-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2rem;
+    }
+    .value-card {
+      background: var(--navy); color: #fff;
+      border-radius: 8px; padding: 1.2rem 1rem; text-align: center;
+      border-top: 3px solid var(--gold);
+    }
+    .value-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .value-card h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--gold-light); margin-bottom: 0.3rem; }
+    .value-card p { font-size: 0.78rem; color: #9BADC4; line-height: 1.5; }
+
+    /* ── STATS ── */
+    #stats {
+      background: var(--navy);
+      padding: 3rem 1.5rem;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; text-align: center;
+    }
+    .stat-item h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem; font-weight: 900; color: var(--gold);
+    }
+    .stat-item p { color: #7A98B8; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
+
+    /* ── PROGRAMS ── */
+    #programs { background: var(--white); }
+    .programs-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .prog-card {
+      border: 1px solid #DDD6C4; border-radius: 10px; overflow: hidden;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .prog-card:hover { box-shadow: 0 12px 40px rgba(26,42,74,0.14); transform: translateY(-4px); }
+    .prog-head {
+      background: var(--navy); padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .prog-icon { font-size: 2rem; }
+    .prog-head h3 { font-family: 'Playfair Display', serif; color: var(--gold-light); font-size: 1.1rem; }
+    .prog-head p { color: #8AA0B8; font-size: 0.78rem; margin-top: 0.2rem; }
+    .prog-body { padding: 1.2rem; }
+    .prog-body ul { list-style: none; }
+    .prog-body li {
+      padding: 0.4rem 0; color: #3A4A5C; font-size: 0.88rem;
+      border-bottom: 1px dashed #E5DCC8;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .prog-body li::before { content: "✦"; color: var(--gold); font-size: 0.6rem; }
+
+    /* ── ADMISSIONS ── */
+    #admissions { background: var(--cream); }
+    .admission-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .admission-info h3 {
+      font-family: 'Playfair Display', serif; font-size: 1.4rem;
+      color: var(--navy); margin-bottom: 1rem;
+    }
+    .steps { list-style: none; }
+    .steps li {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 0.8rem 0; border-bottom: 1px solid #DDD6C4;
+    }
+    .step-num {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--gold); color: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .steps li div h4 { font-weight: 700; color: var(--navy); font-size: 0.9rem; margin-bottom: 0.2rem; }
+    .steps li div p { color: #6A7A8A; font-size: 0.82rem; }
+
+    /* ── FORM ── */
+    .form-card {
+      background: var(--navy); border-radius: 12px; padding: 2rem;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+    .form-card h3 {
+      font-family: 'Playfair Display', serif; color: var(--gold-light);
+      font-size: 1.3rem; margin-bottom: 1.5rem; text-align: center;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; color: #8AAAC8; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 0.7rem 0.9rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 6px; color: #fff;
+      font-family: 'Lato', sans-serif; font-size: 0.88rem;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: var(--gold);
+    }
+    .form-group select option { background: var(--navy); }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .submit-btn {
+      width: 100%; padding: 0.9rem;
+      background: var(--gold); color: var(--navy);
+      font-weight: 700; font-size: 0.9rem; letter-spacing: 0.08em;
+      text-transform: uppercase; border: none; border-radius: 6px;
+      cursor: pointer; transition: background 0.2s, transform 0.2s;
+      margin-top: 0.5rem;
+    }
+    .submit-btn:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .success-msg {
+      display: none; text-align: center; color: #6DD48A;
+      padding: 0.8rem; background: rgba(109,212,138,0.1);
+      border-radius: 6px; margin-top: 0.8rem; font-size: 0.88rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;
+    }
+    .contact-item {
+      display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem;
+    }
+    .contact-icon {
+      width: 44px; height: 44px; background: var(--navy);
+      border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+      border: 1px solid var(--gold);
+    }
+    .contact-item h4 { font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; font-size: 0.9rem; }
+    .contact-item p { color: #5A6A7A; font-size: 0.88rem; line-height: 1.6; }
+
+    .contact-form-card {
+      background: var(--cream); border-radius: 12px; padding: 2rem;
+      border: 1px solid #DDD6C4;
+    }
+    .contact-form-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--navy); font-size: 1.3rem; margin-bottom: 1.5rem;
+    }
+    .contact-form-card .form-group label { color: #5A6A7A; }
+    .contact-form-card input,
+    .contact-form-card textarea {
+      background: #fff; border: 1px solid #CCC4B0; color: var(--navy);
+    }
+    .contact-form-card input:focus,
+    .contact-form-card textarea:focus { border-color: var(--gold); }
+    .contact-form-card textarea { min-height: 100px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      border-top: 2px solid var(--gold);
+      padding: 3rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    .footer-logo { font-family: 'Cinzel', serif; color: var(--gold-light); font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .footer-motto { font-family: 'Playfair Display', serif; font-style: italic; color: var(--gold); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .footer-links a { color: #8AAAC8; text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy { color: #4A6278; font-size: 0.75rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .about-grid, .admission-wrap, .contact-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .programs-grid { grid-template-columns: 1fr; }
+      .values-row { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-circle">MV</div>
+    <div class="nav-title">Manglam Vidhyalaya<br><span style="font-size:0.72rem;color:#6A85A8;font-family:'Lato',sans-serif;letter-spacing:0.04em;">The Vision for Future</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#admissions">Admissions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-rays"></div>
+  <div class="hero-stars" id="stars"></div>
+  <div class="hero-content">
+    <div class="hero-logo-wrap">
+      <img src="/mnt/user-data/uploads/1000041266.jpg" alt="Manglam Vidhyalaya Logo"/>
+    </div>
+    <div class="hero-badge">Est. • Halvad, Gujarat</div>
+    <h1>Manglam<br><span>Vidhyalaya</span></h1>
+    <p class="hero-sub">Opp. Meldidham, Sara Road, Halvad</p>
+    <p class="hero-motto">"The Vision for Future"</p>
+    <div class="hero-btns">
+      <a href="#admissions" class="btn-primary">Apply for Admission</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Nurturing Minds,<br><span>Shaping Futures</span></h2>
+        <div class="divider"></div>
+        <p>Manglam Vidhyalaya is a premier educational institution located in the heart of Halvad, Gujarat. With a steadfast commitment to academic excellence and holistic development, we prepare every student to face tomorrow's challenges with confidence.</p>
+        <p>Our dedicated faculty, modern facilities, and value-based curriculum create an environment where curiosity thrives, character is built, and every child discovers their true potential.</p>
+        <p>We believe education is not just about textbooks — it is about inspiring a love for learning, fostering creativity, and building responsible citizens of tomorrow.</p>
+        <div class="values-row">
+          <div class="value-card"><div class="value-icon">📚</div><h4>Excellence</h4><p>High academic standards in every classroom</p></div>
+          <div class="value-card"><div class="value-icon">🌱</div><h4>Growth</h4><p>Holistic development of mind, body & spirit</p></div>
+          <div class="value-card"><div class="value-icon">🤝</div><h4>Values</h4><p>Integrity, respect and community service</p></div>
+        </div>
+      </div>
+      <div class="about-logo">
+        <img src="/mnt/user-data/uploads/1000041266.jpg" alt="School Logo" class="about-logo-img"/>
+        <p style="margin-top:1rem;font-family:'Playfair Display',serif;font-style:italic;color:var(--gold-dark);font-size:1.05rem;">"The Vision for Future"</p>
+        <p style="margin-top:0.4rem;color:#6A7A8A;font-size:0.82rem;">Opp. Meldidham, Sara Road, Halvad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item"><h3>500+</h3><p>Students Enrolled</p></div>
+      <div class="stat-item"><h3>30+</h3><p>Expert Faculty</p></div>
+      <div class="stat-item"><h3>100%</h3><p>Pass Rate</p></div>
+      <div class="stat-item"><h3>10+</h3><p>Years of Excellence</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="container">
+    <p class="section-label">Our Programs</p>
+    <h2 class="section-title">Academic <span>Programs</span></h2>
+    <div class="divider"></div>
+    <div class="programs-grid">
+      <div class="prog-card">
+        <div class="prog-head">
+          <div class="prog-icon">🌟</div>
+          <div><h3>Primary School</h3><p>Classes 1 – 5</p></div>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Mathematics & Science</li>
+            <li>Languages (Gujarati, Hindi, English)</li>
+            <li>Environmental Studies</li>
+            <li>Arts & Craft</li>
+            <li>Physical Education</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-head">
+          <div class="prog-icon">🎓</div>
+          <div><h3>Middle School</h3><p>Classes 6 – 8</p></div>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Advanced Mathematics</li>
+            <li>Science (Physics, Chemistry, Biology)</li>
+            <li>Social Studies & History</li>
+            <li>Computer Education</li>
+            <li>Sports & Activities</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-head">
+          <div class="prog-icon">🏆</div>
+          <div><h3>Secondary School</h3><p>Classes 9 – 10</p></div>
+        </div>
+        <div class="prog-body">
+          <ul>
+            <li>Board Exam Preparation</li>
+            <li>Science & Commerce Streams</li>
+            <li>Career Guidance</li>
+            <li>Competitive Exam Coaching</li>
+            <li>Leadership Programs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSIONS -->
+<section id="admissions">
+  <div class="container">
+    <p class="section-label">Admissions</p>
+    <h2 class="section-title">Join Our <span>School Family</span></h2>
+    <div class="divider"></div>
+    <div class="admission-wrap">
+      <div class="admission-info">
+        <h3>How to Apply</h3>
+        <ul class="steps">
+          <li>
+            <div class="step-num">1</div>
+            <div><h4>Enquiry & Registration</h4><p>Fill in the admission form online or visit our school office.</p></div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div><h4>Document Submission</h4><p>Submit birth certificate, transfer certificate, and previous report cards.</p></div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div><h4>Interaction Session</h4><p>A friendly interaction with the child and parents with our principal.</p></div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div><h4>Confirmation & Fees</h4><p>Complete the admission formalities and fee payment to confirm the seat.</p></div>
+          </li>
+        </ul>
+        <div style="margin-top:1.5rem;padding:1rem;background:var(--navy);border-radius:8px;border-left:4px solid var(--gold);">
+          <p style="color:#7A9AB8;font-size:0.8rem;">📞 For enquiries call us or visit the school between <strong style="color:var(--gold-light);">9:00 AM – 4:00 PM</strong>, Monday to Saturday.</p>
+        </div>
+      </div>
+      <div>
+        <div class="form-card">
+          <h3>Admission Enquiry Form</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Student's First Name</label>
+              <input type="text" id="fname" placeholder="First name"/>
+            </div>
+            <div class="form-group">
+              <label>Student's Last Name</label>
+              <input type="text" id="lname" placeholder="Last name"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Parent / Guardian Name</label>
+            <input type="text" id="parent" placeholder="Parent or guardian name"/>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="+91 00000 00000"/>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Class Applying For</label>
+              <select id="classApply">
+                <option value="">Select class</option>
+                <option>Class 1</option><option>Class 2</option><option>Class 3</option>
+                <option>Class 4</option><option>Class 5</option><option>Class 6</option>
+                <option>Class 7</option><option>Class 8</option><option>Class 9</option>
+                <option>Class 10</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Academic Year</label>
+              <select id="year">
+                <option>2026 – 2027</option>
+                <option>2027 – 2028</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message (Optional)</label>
+            <textarea id="admMsg" placeholder="Any questions or special requirements..."></textarea>
+          </div>
+          <button class="submit-btn" onclick="submitAdmission()">Submit Enquiry →</button>
+          <div class="success-msg" id="admSuccess">✅ Thank you! We will contact you within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact <span>Us</span></h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Our Address</h4>
+            <p>Manglam Vidhyalaya,<br>Opp. Meldidham, Sara Road,<br>Halvad, Gujarat, India</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕒</div>
+          <div>
+            <h4>School Hours</h4>
+            <p>Monday – Saturday<br>8:00 AM – 4:00 PM<br>Office: 9:00 AM – 4:00 PM</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p>Please visit or call us during school hours for enquiries and admissions.</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🏫</div>
+          <div>
+            <h4>Motto</h4>
+            <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold-dark);">"The Vision for Future"</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form-card">
+          <h3>Send Us a Message</h3>
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="cname" placeholder="Full name"/>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="cmobile" placeholder="+91 00000 00000"/>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" id="csubject" placeholder="What is this regarding?"/>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea id="cmsg" placeholder="Write your message here..."></textarea>
+          </div>
+          <button class="submit-btn" style="background:var(--navy);color:var(--gold-light);border:2px solid var(--gold);" onclick="submitContact()">Send Message →</button>
+          <div class="success-msg" id="cSuccess" style="color:#6DD48A;background:rgba(109,212,138,0.1);">✅ Message sent! We'll get back to you soon.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Manglam Vidhyalaya</p>
+  <p class="footer-motto">"The Vision for Future"</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#programs">Programs</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p class="footer-copy">© 2026 Manglam Vidhyalaya, Halvad, Gujarat. All rights reserved.</p>
+</footer>
+
+<script>
+  // Stars
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = Math.random() * 3 + 's';
+    s.style.animationDuration = (2 + Math.random() * 2) + 's';
+    s.style.width = s.style.height = (1 + Math.random() * 2) + 'px';
+    starsEl.appendChild(s);
+  }
+
+  function submitAdmission() {
+    const f = document.getElementById('fname').value;
+    const p = document.getElementById('parent').value;
+    const m = document.getElementById('mobile').value;
+    if (!f || !p || !m) { alert('Please fill in the required fields.'); return; }
+    document.getElementById('admSuccess').style.display = 'block';
+    ['fname','lname','parent','mobile','admMsg'].forEach(id => document.getElementById(id).value = '');
+  }
+
+  function submitContact() {
+    const n = document.getElementById('cname').value;
+    const msg = document.getElementById('cmsg').value;
+    if (!n || !msg) { alert('Please fill in your name and message.'); return; }
+    document.getElementById('cSuccess').style.display = 'block';
+    ['cname','cmobile','csubject','cmsg'].forEach(id => document.getElementById(id).value = '');
+  }
+</script>
+</body>
+</html>
